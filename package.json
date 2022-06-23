@@ -1,0 +1,36 @@
+{
+	"name": "test-app",
+	"version": "1.0.0",
+	"description": "some text from me",
+	"main": "src/index.js",
+	"scripts": {
+		"lint": "eslint ./src",
+		"lint:fix": "eslint ./src --fix --color"
+	},
+	"keywords": [
+		"setup"
+	],
+	"author": "MaxSaveskul",
+	"license": "unlicensed",
+	"devDependencies": {
+		"eslint": "^8.18.0",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-plugin-import": "^2.26.0",
+		"husky": "^8.0.1",
+		"lint-staged": "^13.0.2"
+	},
+	"dependencies": {
+		"eslint-config-recommended": "^4.1.0"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		".js": [
+			"npm run lint-fix",
+			"git add"
+		]
+	}
+}
